@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton >
+    <ion-buttons left>
+      <button ion-button (click)="volver_atras()">
+        <ion-icon class="customIcon" name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{categoria.linea}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+    <ion-item *ngFor="let item of _ps.productos_categoria">
+      <ion-thumbnail item-left>
+          <img [src]="item.codigo | imagen">
+      </ion-thumbnail>
+      <h2>{{item.producto}}</h2>
+      <p>{{item.proveedor}}</p>
+      <button clear ion-button item-right (click)="ver_producto(item)">Ver mas</button>
+    </ion-item>
+</ion-list>
+
+<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

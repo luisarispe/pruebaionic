@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar hideBackButton>
+    <ion-title>Categorias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list>
+  <button icon-left  ion-item *ngFor="let item of _ps.categorias" [navPush]="por_categoria" [navParams]="{categoria:item}">
+    <ion-icon name="{{item.icono}}"></ion-icon>
+    {{item.linea}}
+  </button>
+</ion-list>
+</ion-content>
